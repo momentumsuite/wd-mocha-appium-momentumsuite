@@ -1,0 +1,45 @@
+{
+  "name": "wd-mocha-appium-momentumsuite",
+  "version": "1.0.0",
+  "description": "Boilerplate project to run MOBILE Test Automation with WD, Mocha, Appium, Allure reporting and Momentum Suite cloud device farm support",
+  "main": "test-settings.js",
+  "scripts": {
+    "test": "npm run local-test",
+    "local-test": "mocha examples/local-test/localTest.js",
+    "local-test-allure": "npx mocha ./examples/local-test/localTest.js --reporter mochawesome",
+    "momentum-test": "mocha examples/getting-started/specs/firstTest.js",
+    "momentum-test-allure": "npx mocha ./examples/getting-started/specs/firstTest.js --reporter mochawesome",
+    "test2": "mocha ./examples/local-test/localTest.js && multi='progress=- mocha-allure-reporter=-' mocha",
+    "report": "allure generate allure-results --clean -o allure-report && allure open allure-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/momentumsuite/wd-mocha-appium-momentumsuite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/momentumsuite/wd-mocha-appium-momentumsuite/issues"
+  },
+  "homepage": "https://github.com/momentumsuite/wd-mocha-appium-momentumsuite#readme"
+  ,
+  "dependencies": {
+    "assert": "^2.0.0",
+    "axios": "^1.4.0",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "color": "^4.2.3",
+    "colors": "^1.4.0",
+    "esm": "^3.2.25",
+    "install": "^0.13.0",
+    "mocha-allure-reporter": "^1.4.0",
+    "mocha-tesults-reporter": "^1.2.0",
+    "mochawesome": "^7.1.3",
+    "should": "^13.2.3",
+    "wd": "^1.14.0"
+  },
+  "devDependencies": {
+    "allure-mocha": "^2.2.1",
+    "mocha": "^10.2.0"
+  }
+}
