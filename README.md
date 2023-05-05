@@ -38,11 +38,19 @@ With a Momentum Suite account, You need 4 things to start without any Appium or 
 **Start with Android device:**
  Open for editing your "../test/test-settings.js" file under root directory.
  
- Set momentum.user, momentum.token, momentum.deviceList, momentum.app on test-settings.js file.
+ Set momentum.user, momentum.token, momentum.deviceList, momentum.app on your JS file.
  
  Test script is available in getting-started directory
  
  Run the following command in project's base directory :
 ```
 npm run test
+```
+ 
+ **All available commands to start mobile testing:**
+ ```
+ npm run local-test
+ npm run local-test-allure
+ npm run momentum-test
+ npm run momentum-test-allure
 ```
