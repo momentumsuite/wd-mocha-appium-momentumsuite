@@ -68,9 +68,6 @@ exports.setDriverMethods = (driver) => {
                 return axios.get("/api/users/2", config)
                     .then((response) => {
                         driver.log("API SUCCESS response: " + Object.values(response).flat().join());      
-                        driver.log(response.name);  
-                        driver.log(response.job);  
-                        driver.log(response.id);  
                         resolve(response);
 
                         
@@ -92,10 +89,8 @@ exports.setDriverMethods = (driver) => {
                                         return axios.post("/api/users", config,requestBody)
                                         .then((response) => {
                                             driver.log("API SUCCESS response: " + Object.values(response));      
-                                            driver.log(response.name[0]);  
-                                            driver.log(response.job[0]);  
-                                            driver.log(response.id[0]);  
                                             resolve(response);
+                                            driver.log(response);
 
                     })
                     .catch((error) => {  
