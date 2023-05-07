@@ -57,12 +57,6 @@ exports.setDriverMethods = (driver) => {
         var loginPassword = "leader";
 
         return new Promise((resolve, reject) => {
-                //----------SET REQUEST BODY----------
-                var requestBody = {
-                    'name': loginUsername,
-                    'job': loginPassword
-                    }
-                driver.log("API Request Body: " + JSON.stringify(requestBody));  
                 //----------SET REQUEST HEADERS----------
                 var config = {
                     headers: {
@@ -79,30 +73,12 @@ exports.setDriverMethods = (driver) => {
                         driver.log(response.id);  
                         resolve(response);
 
-                        var testPlanUrlPath = "/api/users";
+                        
                                         //----------SET REQUEST BODY----------
-                                        requestBody = {
-                                                            'filter': [
-                                                                {
-                                                                    'key':'Status',
-                                                                    'value': null
-                                                                },
-                                                                {
-                                                                    'key':'LastDay',
-                                                                    'value': 365
-                                                                },
-                                                                {
-                                                                    'key':'Title',
-                                                                    'value': ''
-                                                                }
-                                                            ],
-                                                            'orderBy': {
-                                                                'key':'UpdatedAt',
-                                                                'value': 'desc'
-                                                            },
-                                                            'page': 1,
-                                                            'size': 10
-                                                        }
+                                        var requestBody = {
+                                            'name': loginUsername,
+                                            'job': loginPassword
+                                            }
                                         driver.log("API Request Body: " + JSON.stringify(requestBody));  
                                         //----------SET REQUEST HEADERS----------
                                         config = {
@@ -115,10 +91,10 @@ exports.setDriverMethods = (driver) => {
 
                                         return axios.post("/api/users", config,requestBody)
                                         .then((response) => {
-                                            driver.log("API SUCCESS response: " + Object.values(response).flat().join());      
-                                            driver.log(response.name);  
-                                            driver.log(response.job);  
-                                            driver.log(response.id);  
+                                            driver.log("API SUCCESS response: " + Object.values(response));      
+                                            driver.log(response.name[0]);  
+                                            driver.log(response.job[0]);  
+                                            driver.log(response.id[0]);  
                                             resolve(response);
 
                     })
