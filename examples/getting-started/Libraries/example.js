@@ -25,14 +25,19 @@ var ELEMENT = {
     ///Login Ekranı
         USERNAME_TXT         : "app.com.sandjs.bankaccountfakewallet:id/username_txt", 
         PASSWORD_TXT         : "app.com.sandjs.bankaccountfakewallet:id/password_txt",
-        LOGIN_BTN            : "app.com.sandjs.bankaccountfakewallet:id/login_btn"
+        LOGIN_BTN            : "app.com.sandjs.bankaccountfakewallet:id/login_btn",
     //////Accaount Ekranı ///////
+
+    
+    
 }
+
 
 exports.setDriverMethods = (driver) => {
     
-    wd.addPromiseChainMethod('login',(user,pass) => {
+    wd.addPromiseChainMethod('login', (user,pass) => {
     return driver
+    .sleep(3000)
         .waitForElementById(ELEMENT.USERNAME_TXT, DEFAULT_TIMEOUT)
         .sendKeys(user)
         .sleep(DEFAULT_TIMEOUT_MIN)
@@ -42,5 +47,86 @@ exports.setDriverMethods = (driver) => {
         .waitForElementById(ELEMENT.LOGIN_BTN, DEFAULT_TIMEOUT)
         .click()
         .sleep(DEFAULT_TIMEOUT_MID);
+    })
+    wd.addPromiseChainMethod('example_axios', () => {
+        axios.defaults.baseURL = 'https://reqres.in/';
+        axios.defaults.headers.post['Content-Type'] = 'application/json';
+        axios.defaults.timeout = 25000;
+        //----------SET DATA----------
+        var loginUsername = "morpheus";
+        var loginPassword = "leader";
+
+        return new Promise((resolve, reject) => {
+                //----------SET REQUEST BODY----------
+                var requestBody = {
+                    'name': loginUsername,
+                    'job': loginPassword
+                    }
+                driver.log("API Request Body: " + JSON.stringify(requestBody));  
+                //----------SET REQUEST HEADERS----------
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+                driver.log("API Request Headers: " + JSON.stringify(config));  
+                //----------API CALL-1 - LOGIN ----------
+                return axios.get("/api/users/2", config)
+                    .then((response) => {
+                        driver.log("API SUCCESS response: " + Object.values(response).flat().join());      
+                        driver.log(response.name);  
+                        driver.log(response.job);  
+                        driver.log(response.id);  
+                        resolve(response);
+
+                        var testPlanUrlPath = "/api/users";
+                                        //----------SET REQUEST BODY----------
+                                        requestBody = {
+                                                            'filter': [
+                                                                {
+                                                                    'key':'Status',
+                                                                    'value': null
+                                                                },
+                                                                {
+                                                                    'key':'LastDay',
+                                                                    'value': 365
+                                                                },
+                                                                {
+                                                                    'key':'Title',
+                                                                    'value': ''
+                                                                }
+                                                            ],
+                                                            'orderBy': {
+                                                                'key':'UpdatedAt',
+                                                                'value': 'desc'
+                                                            },
+                                                            'page': 1,
+                                                            'size': 10
+                                                        }
+                                        driver.log("API Request Body: " + JSON.stringify(requestBody));  
+                                        //----------SET REQUEST HEADERS----------
+                                        config = {
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            }
+                                        }
+                                        driver.log("API Request Headers: " + JSON.stringify(config));  
+                                        //----------API CALL-2 - testPlanUrlPath ----------
+
+                                        return axios.post("/api/users", config,requestBody)
+                                        .then((response) => {
+                                            driver.log("API SUCCESS response: " + Object.values(response).flat().join());      
+                                            driver.log(response.name);  
+                                            driver.log(response.job);  
+                                            driver.log(response.id);  
+                                            resolve(response);
+
+                    })
+                    .catch((error) => {  
+                        driver.log("API ERROR response: " + error);   
+                        resolve(null);
+                    });
+                })
+        })
     })
 };

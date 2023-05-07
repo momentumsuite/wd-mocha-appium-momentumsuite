@@ -1,3 +1,4 @@
+
 exports.configure = function (driver) {
     driver.on('status', function (info) {
         console.log(info.cyan);
@@ -8,4 +9,6 @@ exports.configure = function (driver) {
     driver.on('http', function (meth, path, data) {
         console.log(' > ' + meth.magenta, path, (data || '').grey);
     });
+
+    
 };

@@ -1,8 +1,11 @@
-require("./helpers/setup");
+require("../../examples/helpers/setup.js");
 const wd = require("wd");
 const tesultsReporter = require("mocha-tesults-reporter");
 const {DATA} = require('../../test-settings.js');
+var allure = require('allure-commandline');
 
+// returns ChildProcess instance
+var generation = allure(['generate', 'allure-results']);
 const serverConfigLocal = {
     hostname: DATA.LOCAL.hostname,
     port: DATA.LOCAL.port,
@@ -15,11 +18,10 @@ describe("sample test", function () {
 
     let driver;
     let allPassed = true;
-
     before(function () {
         
         driver = wd.promiseChainRemote(serverConfigLocal);
-        require("./helpers/logging").configure(driver);
+        require("../../examples/helpers/logging.js").configure(driver);
 
         let desired = {
             platformName: 'Android',
@@ -32,16 +34,38 @@ describe("sample test", function () {
             .init(desired)
             .setImplicitWaitTimeout(8000);
     });
-
-    after(function () {
-        return driver
-            .quit();
+    after(async function(test, context, { error, result, duration, passed, retries }) {
+        if (!passed) {
+            await driver.takeScreenshot();
+            await driver.closeApp();
+            driver.deleteSession(); 
+            driver.quit();   
+        }
     });
-
     afterEach(function () {
         allPassed = allPassed && this.currentTest.state === 'passed';
-    });
+        const reportError = new Error('Could not generate Allure report')
+        const generation = allure(['generate', 'allure-results', '--clean'])
+        return new Promise((resolve, reject) => {
+            const generationTimeout = setTimeout(
+                () => reject(reportError),
+                15000)
 
+            generation.on('exit', function(exitCode) {
+                clearTimeout(generationTimeout)
+
+                if (exitCode !== 0) {
+                    return reject(reportError)
+                }
+
+                console.log('Allure report successfully generated')
+                resolve()
+            })
+        })
+    });
+    generation.on('exit', function(exitCode) {
+        console.log('Generation is finished with code:', exitCode);
+    });
     it("login example", function () {
         return driver
             .waitForElementById("app.com.sandjs.bankaccountfakewallet:id/username_txt")
