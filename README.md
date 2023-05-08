@@ -8,14 +8,14 @@ Boilerplate project to run MOBILE Test Automation with WD, Mocha, Appium, Allure
   * Chrome mobileweb testing on Android devices
   * Safari mobileweb testing on iOS devices
   * Local testing or using Momentum Suite's 150+ Android or iOS devices
-  * Auto generated HTML [Allure](https://docs.qameta.io/allure/) test report after test
+  * Mochawesome report generator [Mochawesome](https://www.npmjs.com/package/mochawesome-report-generator) test report after test
 
 ## Setup
 
 **Requirements:**
 
 * WD requires Node.js, If you don't have Node installed, download it from [here](https://nodejs.org/en/).
-* Install the [Allure command-line tool](https://www.npmjs.com/package/allure-commandline), and process the results directory after test run.
+* Install the [Mochawesome](https://www.npmjs.com/package/mochawesome-report-generator), and process the results directory after test run.
 
 **Install the dependencies:**
 
@@ -36,7 +36,7 @@ With a Momentum Suite account, You need 4 things to start without any Appium or 
  Do not forget to set these 4 Appium capability values and check hostname, port, path and protocol values on your **test-settings.js** file.
   
 **Start with Android device:**
- Open for editing your "../test/test-settings.js" file under root directory.
+ Open for editing your "../test-settings.js" file under root directory.
  
  Set momentum.user, momentum.token, momentum.deviceList, momentum.app on your JS file.
  
