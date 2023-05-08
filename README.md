@@ -50,7 +50,7 @@ npm run test
  **All available commands to start mobile testing:**
  ```
  npm run local-test
- npm run local-test-allure
+ npm run local-test-mochawesome
  npm run momentum-test
- npm run momentum-test-allure
+ npm run momentum-test-mochawesome
 ```

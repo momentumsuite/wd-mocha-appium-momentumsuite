@@ -4,7 +4,7 @@
   "description": "Boilerplate project to run MOBILE Test Automation with WD, Mocha, Appium, Allure reporting and Momentum Suite cloud device farm support",
   "main": "test-settings.js",
   "scripts": {
-    "test": "npm run local-test",
+    "test": "npm run momentum-test",
     "local-test": "mocha examples/local-test/localTest.js",
     "local-test-mochawesome": "npx mocha ./examples/local-test/localTest.js --reporter mochawesome",
     "momentum-test": "mocha examples/getting-started/specs/firstTest.js",
