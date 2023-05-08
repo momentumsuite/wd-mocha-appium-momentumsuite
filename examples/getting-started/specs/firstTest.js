@@ -73,23 +73,4 @@ describe("sample test", function () {
         return driver.example_axios();
 
     });
-    it("api call example with axios 2",async function () {
-        return driver.example_axios3();
-
-    })
-
-    it("api call example with axios 2",async function () {
-        return driver.elementById("username").click()
-        .sleep(3000)
-        .waitForElementById(ELEMENT.USERNAME_TXT, DEFAULT_TIMEOUT)
-        .sendKeys(user)
-        .sleep(DEFAULT_TIMEOUT_MIN)
-        .waitForElementById(ELEMENT.PASSWORD_TXT, DEFAULT_TIMEOUT)
-        .sendKeys(pass)
-        .sleep(DEFAULT_TIMEOUT_MIN)
-        .waitForElementById(ELEMENT.LOGIN_BTN, DEFAULT_TIMEOUT)
-        .click()
-        .sleep(DEFAULT_TIMEOUT_MID);
-
-    })
 });
