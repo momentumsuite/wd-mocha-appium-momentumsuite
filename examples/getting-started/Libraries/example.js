@@ -3,7 +3,7 @@ const wd = require("wd");
 const axios = require('axios').default;
 const {expect} = require('chai');
 var assert = require('assert');
-axios.defaults.baseURL = 'https://fakestoreapi.com';
+axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com/';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.timeout = 25000;
 
@@ -100,4 +100,5 @@ exports.setDriverMethods = (driver) => {
                 })
         })
     })
-};
+
+}

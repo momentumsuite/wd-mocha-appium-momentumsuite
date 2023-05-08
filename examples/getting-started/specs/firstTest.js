@@ -60,5 +60,9 @@ describe("sample test", function () {
     it("api call example with axios 2",async function () {
         return driver.example_axios();
 
+    });
+    it("api call example with axios 2",async function () {
+        return driver.example_axios3();
+
     })
 });

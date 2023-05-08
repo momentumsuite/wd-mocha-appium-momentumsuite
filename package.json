@@ -6,11 +6,9 @@
   "scripts": {
     "test": "npm run local-test",
     "local-test": "mocha examples/local-test/localTest.js",
-    "local-test-allure": "npx mocha ./examples/local-test/localTest.js --reporter mochawesome",
+    "local-test-mochawesome": "npx mocha ./examples/local-test/localTest.js --reporter mochawesome",
     "momentum-test": "mocha examples/getting-started/specs/firstTest.js",
-    "momentum-test-allure": "npx mocha ./examples/getting-started/specs/firstTest.js --reporter mochawesome",
-    "test2": "mocha ./examples/local-test/localTest.js && multi='progress=- mocha-allure-reporter=-' mocha",
-    "report": "allure generate allure-results --clean -o allure-report && allure open allure-report"
+    "momentum-test-mochawesome": "npx mocha ./examples/getting-started/specs/firstTest.js --reporter mochawesome"
   },
   "repository": {
     "type": "git",
