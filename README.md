@@ -36,7 +36,7 @@ With a Momentum Suite account, You need 4 things to start without any Appium or 
  Do not forget to set these 4 Appium capability values and check hostname, port, path and protocol values on your **test-settings.js** file.
   
 **Start with Android device:**
- Open for editing your "../test/test-settings.js" file under root directory.
+ Open for editing your "../test-settings.js" file under root directory.
  
  Set momentum.user, momentum.token, momentum.deviceList, momentum.app on your JS file.
  
