@@ -7,7 +7,7 @@ var DATA = {
         "momentum.gw": 443,
         "momentum.path": "/gateway/wd/hub/",
         "momentum.protocol": "https",
-        "momentum.deviceList": [4007] 
+        "momentum.deviceList": [4032] 
         },
    
     LOCAL : {

@@ -2,7 +2,6 @@ require("../../examples/helpers/setup.js");
 const wd = require("wd");
 const tesultsReporter = require("mocha-tesults-reporter");
 const {DATA} = require('../../test-settings.js');
-var allure = require('allure-commandline');
 
 // returns ChildProcess instance
 var generation = allure(['generate', 'allure-results']);

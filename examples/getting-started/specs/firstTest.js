@@ -1,3 +1,12 @@
+const { driverHelper } = require('../local/driver-manager');
+const path = require('path');
+let Momentum = require(path.join(__dirname, '../local/Momentum'));
+var driver = {};
+process.env.SCREENSHOT_ORDER = 0;
+
+
+
+
 require("../../../examples/helpers/setup.js");
 const {setDriverMethods} = require('../../../examples/getting-started/Libraries/example.js');
 const {ELEMENT} = require('../../../examples/getting-started/Libraries/example.js');
@@ -14,6 +23,9 @@ const serverConfigMomentum = {
     protocol: DATA.CLOUD['momentum.protocol'],
 };
 
+
+[Momentum.Section(Id=4035, Title='02-Ana Sayfa-Giriş')]
+[Momentum.Case(Id=17329, Title='Hedef')]
 describe("sample test", function () {
     this.timeout(300000);
 
@@ -63,6 +75,21 @@ describe("sample test", function () {
     });
     it("api call example with axios 2",async function () {
         return driver.example_axios3();
+
+    })
+
+    it("api call example with axios 2",async function () {
+        return driver.elementById("username").click()
+        .sleep(3000)
+        .waitForElementById(ELEMENT.USERNAME_TXT, DEFAULT_TIMEOUT)
+        .sendKeys(user)
+        .sleep(DEFAULT_TIMEOUT_MIN)
+        .waitForElementById(ELEMENT.PASSWORD_TXT, DEFAULT_TIMEOUT)
+        .sendKeys(pass)
+        .sleep(DEFAULT_TIMEOUT_MIN)
+        .waitForElementById(ELEMENT.LOGIN_BTN, DEFAULT_TIMEOUT)
+        .click()
+        .sleep(DEFAULT_TIMEOUT_MID);
 
     })
 });

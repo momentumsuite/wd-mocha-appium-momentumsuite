@@ -1,4 +1,7 @@
-
+const path = require('path');
+let Momentum = require(path.join(__dirname, '../local/Momentum'));
+[Momentum.Library(Id=1329, IsCucumber="false")]
+//..::PLEASE DO NOT MODIFY THE FIRST 3 LINES::..
 const wd = require("wd");
 const axios = require('axios').default;
 const {expect} = require('chai');
