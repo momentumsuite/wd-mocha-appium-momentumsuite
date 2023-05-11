@@ -2,9 +2,8 @@ require("../../examples/helpers/setup.js");
 const wd = require("wd");
 const tesultsReporter = require("mocha-tesults-reporter");
 const {DATA} = require('../../test-settings.js');
-const { driverHelper } = require('../local/driver-manager');
+const { driverHelper } = require('/Users/hakantektas/git_clone/wd-mocha-appium-momentumsuite/examples/getting-started/local/driver-manager.js');
 // returns ChildProcess instance
-var generation = allure(['generate', 'allure-results']);
 const serverConfigLocal = {
     hostname: DATA.LOCAL.hostname,
     port: DATA.LOCAL.port,
@@ -61,9 +60,6 @@ describe("sample test", function () {
                 resolve()
             })
         })
-    });
-    generation.on('exit', function(exitCode) {
-        console.log('Generation is finished with code:', exitCode);
     });
     it("login example", function () {
         return driver

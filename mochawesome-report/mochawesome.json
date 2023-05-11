@@ -1,15 +1,15 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 3,
+    "tests": 2,
     "passes": 2,
     "pending": 0,
-    "failures": 1,
-    "start": "2023-05-08T06:45:49.960Z",
-    "end": "2023-05-08T06:46:08.319Z",
-    "duration": 18359,
-    "testsRegistered": 3,
-    "passPercent": 66.66666666666666,
+    "failures": 0,
+    "start": "2023-05-11T09:17:46.414Z",
+    "end": "2023-05-11T09:18:04.913Z",
+    "duration": 18499,
+    "testsRegistered": 2,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "b3dabd00-2585-4db0-a0c7-e283a175d6d4",
+      "uuid": "7dee742a-9e31-4dd5-9435-b9407ce014b7",
       "title": "",
       "fullFile": "/Users/hakantektas/git_clone/wd-mocha-appium-momentumsuite/examples/getting-started/specs/firstTest.js",
       "file": "/examples/getting-started/specs/firstTest.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4a1e16ca-8420-4f52-9608-4287998471de",
+          "uuid": "50bf7e1f-ca3a-42cb-9e47-d16b398c90b6",
           "title": "sample test",
           "fullFile": "/Users/hakantektas/git_clone/wd-mocha-appium-momentumsuite/examples/getting-started/specs/firstTest.js",
           "file": "/examples/getting-started/specs/firstTest.js",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"sample test\"",
               "fullTitle": "sample test \"before all\" hook in \"sample test\"",
               "timedOut": false,
-              "duration": 8224,
+              "duration": 8149,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "driver = wd.promiseChainRemote(serverConfigMomentum);\nrequire(\"../../../examples/helpers/logging.js\").configure(driver);\nsetDriverMethods(driver);\nconst  desiredCaps = {\n    platformName: 'Android',\n    \"automationName\": \"UiAutomator2\",\n    \"autoGrantPermissions\": true,\n    \"app\":DATA.CLOUD['momentum.app'],\n    \"fullReset\": true,\n    \"noReset\": false,\n    \"deviceName\": \"\",\n    \"udid\": \"\",\n    \"momentum:user\":DATA.CLOUD['momentum.user'],\n    \"momentum:token\":DATA.CLOUD['momentum.token'],\n    \"momentum:gw\": DATA.CLOUD['momentum.deviceList'][0]\n};\nreturn driver\n    .init(desiredCaps)\n    .setImplicitWaitTimeout(8000);",
               "err": {},
-              "uuid": "90760f30-ab65-4d8f-9eb1-e6e6fd35a80d",
-              "parentUUID": "4a1e16ca-8420-4f52-9608-4287998471de",
+              "uuid": "7102b05e-7fc0-47ff-a11a-45fc69f2aa24",
+              "parentUUID": "50bf7e1f-ca3a-42cb-9e47-d16b398c90b6",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after all\" hook in \"sample test\"",
               "fullTitle": "sample test \"after all\" hook in \"sample test\"",
               "timedOut": false,
-              "duration": 1462,
+              "duration": 2280,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "return driver\n    .quit();",
               "err": {},
-              "uuid": "a52076e3-f644-4e90-b13c-8456688943a6",
-              "parentUUID": "4a1e16ca-8420-4f52-9608-4287998471de",
+              "uuid": "65416bdf-6578-40f7-af52-e92782c471d4",
+              "parentUUID": "50bf7e1f-ca3a-42cb-9e47-d16b398c90b6",
               "isHook": true,
               "skipped": false
             },
@@ -83,8 +83,8 @@
               "context": null,
               "code": "allPassed = allPassed && this.currentTest.state === 'passed';",
               "err": {},
-              "uuid": "17e7f55c-0cb0-47ba-8f5a-0c8eb3093f87",
-              "parentUUID": "4a1e16ca-8420-4f52-9608-4287998471de",
+              "uuid": "690aa445-a9b0-4f96-bad5-04cdd2b92178",
+              "parentUUID": "50bf7e1f-ca3a-42cb-9e47-d16b398c90b6",
               "isHook": true,
               "skipped": false
             }
@@ -94,7 +94,7 @@
               "title": "login example with mobile test",
               "fullTitle": "sample test login example with mobile test",
               "timedOut": false,
-              "duration": 8535,
+              "duration": 7996,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -103,8 +103,8 @@
               "context": null,
               "code": "return driver.login(\"hakan\",\"12355\");",
               "err": {},
-              "uuid": "992870bf-445a-42fa-9a6a-eacb744c8e71",
-              "parentUUID": "4a1e16ca-8420-4f52-9608-4287998471de",
+              "uuid": "f2ee0856-d159-44d9-9e8a-28ae7a7df78c",
+              "parentUUID": "50bf7e1f-ca3a-42cb-9e47-d16b398c90b6",
               "isHook": false,
               "skipped": false
             },
@@ -112,54 +112,30 @@
               "title": "api call example with axios 2",
               "fullTitle": "sample test api call example with axios 2",
               "timedOut": false,
-              "duration": 127,
+              "duration": 64,
               "state": "passed",
-              "speed": "slow",
+              "speed": "medium",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "return driver.example_axios();",
               "err": {},
-              "uuid": "f5792376-036e-43de-bff1-bfc5ffc94508",
-              "parentUUID": "4a1e16ca-8420-4f52-9608-4287998471de",
-              "isHook": false,
-              "skipped": false
-            },
-            {
-              "title": "api call example with axios 2",
-              "fullTitle": "sample test api call example with axios 2",
-              "timedOut": false,
-              "duration": 1,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "return driver.example_axios3();",
-              "err": {
-                "message": "TypeError: driver.example_axios3 is not a function",
-                "estack": "TypeError: driver.example_axios3 is not a function\n    at Context.<anonymous> (examples/getting-started/specs/firstTest.js:65:23)\n    at process.processImmediate (node:internal/timers:475:21)",
-                "diff": null
-              },
-              "uuid": "4fe12add-f1b7-4266-9527-009388035725",
-              "parentUUID": "4a1e16ca-8420-4f52-9608-4287998471de",
+              "uuid": "a99b2dff-49ee-4ea5-9a4e-e1aa7eda6eb9",
+              "parentUUID": "50bf7e1f-ca3a-42cb-9e47-d16b398c90b6",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "992870bf-445a-42fa-9a6a-eacb744c8e71",
-            "f5792376-036e-43de-bff1-bfc5ffc94508"
+            "f2ee0856-d159-44d9-9e8a-28ae7a7df78c",
+            "a99b2dff-49ee-4ea5-9a4e-e1aa7eda6eb9"
           ],
-          "failures": [
-            "4fe12add-f1b7-4266-9527-009388035725"
-          ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8663,
+          "duration": 8060,
           "root": false,
           "rootEmpty": false,
           "_timeout": 300000
