@@ -2,7 +2,7 @@ require("../../examples/helpers/setup.js");
 const wd = require("wd");
 const tesultsReporter = require("mocha-tesults-reporter");
 const {DATA} = require('../../test-settings.js');
-
+const { driverHelper } = require('../local/driver-manager');
 // returns ChildProcess instance
 var generation = allure(['generate', 'allure-results']);
 const serverConfigLocal = {
