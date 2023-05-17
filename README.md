@@ -22,7 +22,7 @@ Boilerplate project to run MOBILE Test Automation with WD, Mocha, Appium, Allure
 Run the following command in project's base directory :
 ```
 npm i
-npm install mocha
+npm install -g mocha
 ```
 
 ## Getting Started
